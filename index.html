@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmood Kargholy — Retro Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="boot-screen" id="bootScreen" role="dialog" aria-labelledby="bootTitle" aria-modal="true">
+    <div class="login-window">
+      <header class="titlebar">
+        <div class="title"><span class="app-dot"></span> Mahmood 98 Login</div>
+        <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+      </header>
+      <div class="window-body login-body">
+        <div class="computer-badge" aria-hidden="true">🖥️</div>
+        <div class="boot-panel" id="bootPanel">
+          <p class="eyebrow">Mahmood OS</p>
+          <h1 id="bootTitle">Starting Desktop...</h1>
+          <div class="boot-lines" id="bootLines" aria-live="polite">
+            <span>Checking portfolio files...</span>
+            <span>Loading installed apps...</span>
+            <span>Preparing sound system...</span>
+          </div>
+          <div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div>
+        </div>
+        <div class="login-panel" id="loginPanel" hidden>
+          <p class="eyebrow">Welcome</p>
+          <h1>Enter Mahmood's Desktop</h1>
+          <p class="login-copy">Welcome to Mahmood 98. Type the password and press Enter to start Windows-style desktop mode.</p>
+          <form id="loginForm" class="login-form">
+            <label for="passwordInput">Password</label>
+            <div class="password-row">
+              <input id="passwordInput" type="password" autocomplete="current-password" value="mahmood98" aria-describedby="passwordHint" />
+              <button class="btn primary" type="submit">Enter</button>
+            </div>
+            <small id="passwordHint">Hint: mahmood98</small>
+            <p class="login-error" id="loginError" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crt"></div>
+  <div class="desktop-shell" id="top">
+    <aside class="desktop-icons" aria-label="Desktop shortcuts">
+      <a class="desktop-icon" href="#myComputer" data-open="myComputer"><span>🖥️</span><strong>My Computer</strong></a>
+      <a class="desktop-icon" href="#portfolio" data-open="portfolio"><span>💼</span><strong>CV Portfolio</strong></a>
+      <a class="desktop-icon" href="#contact" data-open="contact"><span>✉️</span><strong>Contact</strong></a>
+      <a class="desktop-icon" href="#apps" data-open="apps"><span>🪟</span><strong>Programs</strong></a>
+      <a class="desktop-icon" href="#musicApp" data-open="musicApp"><span>🎵</span><strong>Music</strong></a>
+      <a class="desktop-icon" href="#recycleBin" data-open="recycleBin"><span>🗑️</span><strong>Recycle Bin</strong></a>
+      <button class="desktop-icon desktop-button" id="shutdownShortcut" type="button"><span>⏻</span><strong>Turn Off</strong></button>
+    </aside>
+
+    <main class="workspace">
+
+      <section class="window" id="myComputer" style="--x: 16vw; --y: 12vh; --w: 720px;">
+        <header class="titlebar"><div class="title">🖥️ My Computer</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body explorer-body">
+          <div class="explorer-toolbar"><button class="btn">Back</button><button class="btn">Forward</button><button class="btn">Up</button><span>Address: C:\Mahmood</span></div>
+          <div class="drive-grid clean-grid">
+            <button class="drive-icon" data-open="portfolio"><span>💼</span><strong>CV Portfolio</strong><small>Best folder for employers</small></button>
+            <button class="drive-icon" data-open="services"><span>🛠️</span><strong>Services</strong><small>Repair, support, editing</small></button>
+            <button class="drive-icon" data-open="voices"><span>💿</span><strong>Languages</strong><small>Voice clips and proficiency</small></button>
+            <button class="drive-icon" data-open="media"><span>🖼️</span><strong>Gallery</strong><small>Hobbies and creative photos</small></button>
+            <button class="drive-icon" data-open="apps"><span>🪟</span><strong>Programs</strong><small>Social and channel apps</small></button>
+            <button class="drive-icon" data-open="contact"><span>✉️</span><strong>Contact</strong><small>Email and profiles</small></button>
+            <button class="drive-icon" data-open="resume"><span>📄</span><strong>Resume PDF</strong><small>Downloadable CV</small></button>
+            <button class="drive-icon" data-open="controlPanel"><span>⚙️</span><strong>Settings</strong><small>Sounds, wallpaper, power</small></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="controlPanel" style="--x: 20vw; --y: 18vh; --w: 620px;">
+        <header class="titlebar"><div class="title">⚙️ Control Panel</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body control-panel-body">
+          <button class="program-icon" data-theme="mountain"><span>🏔️</span><strong>Mountain Wallpaper</strong><small>Current system background</small></button>
+          <button class="program-icon" data-theme="forest"><span>🌲</span><strong>Forest Wallpaper</strong><small>Use original snow image</small></button>
+          <button class="program-icon" id="soundToggle"><span>🔊</span><strong>System Sounds</strong><small>Toggle retro beeps</small></button>
+          <button class="program-icon" data-open="faq"><span>❔</span><strong>Help</strong><small>Questions and answers</small></button>
+        </div>
+      </section>
+
+      <section class="window hero-window is-open" id="home" style="--x: 3vw; --y: 4vh; --w: 920px;">
+        <header class="titlebar">
+          <div class="title"><span class="app-dot"></span> Mahmood.exe</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body home-dashboard">
+          <aside class="home-profile">
+            <img src="assets/me1.png" alt="Mahmood Kargholy">
+            <h1>Mahmood Kargholy</h1>
+            <p>IT support · Phone repair · Google Workspace · Creative media</p>
+            <a class="btn primary" href="assets/Mahmood Kargholy CV new.pdf" target="_blank" rel="noreferrer">Open CV PDF</a>
+          </aside>
+          <section class="home-main">
+            <div class="welcome-dialog compact"><div class="welcome-icon">🖥️</div><div><h2>Welcome to Mahmood 98</h2><p>Choose a folder below. Everything is grouped for CV and job review.</p></div></div>
+            <div class="quick-folders">
+              <button data-open="portfolio"><span>💼</span><strong>CV Portfolio</strong><small>Skills, projects, hobbies with photos</small></button>
+              <button data-open="services"><span>🛠️</span><strong>Services</strong><small>What Mahmood can help with</small></button>
+              <button data-open="voices"><span>💿</span><strong>Languages</strong><small>Arabic, English, Turkish voice clips</small></button>
+              <button data-open="media"><span>🖼️</span><strong>Gallery</strong><small>Selected photos and media</small></button>
+              <button data-open="apps"><span>🪟</span><strong>Programs</strong><small>YouTube, Instagram, LinkedIn, Discord</small></button>
+              <button data-open="contact"><span>✉️</span><strong>Contact</strong><small>Email and social links</small></button>
+              <button data-open="musicApp"><span>🎵</span><strong>Music</strong><small>Funny UK meme music links</small></button>
+              <button data-open="recycleBin"><span>🗑️</span><strong>Recycle Bin</strong><small>Funny meme folder</small></button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="window" id="portfolio" style="--x: 17vw; --y: 10vh; --w: 920px;">
+        <header class="titlebar">
+          <div class="title">📁 Portfolio CV</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body cv-portfolio">
+          <div class="cv-sidebar">
+            <img src="assets/me1.png" alt="Mahmood Kargholy">
+            <h2>Mahmood Kargholy</h2>
+            <p>IT support, phone repair, Google Workspace, creative media, and community setup.</p>
+            <a class="btn primary" href="assets/Mahmood Kargholy CV new.pdf" target="_blank" rel="noreferrer">Open CV PDF</a>
+          </div>
+          <div class="cv-sections">
+            <section class="cv-group"><h3>Professional Skills</h3><div class="cv-card-grid">
+              <button class="skill-card" data-open="skillWorkspace"><img src="assets/GoogleWorkspace.png" alt="Google Workspace"><div><strong>Google Workspace</strong><p>Email, Slides, Sheets, collaboration, presentations, and workflow support.</p></div></button>
+              <button class="skill-card" data-open="skillSoftware"><img src="assets/software.webp" alt="Software repair"><div><strong>Software Repair</strong><p>iOS and Android issues, app crashes, updates, errors, and performance fixes.</p></div></button>
+              <button class="skill-card" data-open="skillHardware"><img src="assets/project6.webp" alt="Hardware repair"><div><strong>Hardware Repair</strong><p>Screens, batteries, cameras, charging ports, and phone components.</p></div></button>
+              <button class="skill-card" data-open="skillAdobe"><img src="assets/Adobe-Logo-1993.jpg" alt="Adobe"><div><strong>Adobe Editing</strong><p>Premiere Pro, After Effects, Lightroom, Photoshop, and post-production.</p></div></button>
+            </div></section>
+            <section class="cv-group"><h3>Content & Community</h3><div class="cv-card-grid">
+              <button class="skill-card" data-open="youtubeApp"><img src="assets/yt.webp" alt="YouTube"><div><strong>YouTube Content</strong><p>Video creation, channel growth, creative uploads, and audience building.</p></div></button>
+              <button class="skill-card" data-open="discordApp"><img src="assets/discord-logo.svg" alt="Discord"><div><strong>Discord Server</strong><p>Roles, permissions, templates, gaming communities, and server organisation.</p></div></button>
+            </div></section>
+            <section class="cv-group"><h3>Hobbies With Pictures</h3><div class="hobby-strip">
+              <button class="hobby-card" data-open="hobbyPhone"><img src="assets/phone rebair1 hobbe.jpg" alt="Phone repair"><strong>Phone Repair</strong></button>
+              <button class="hobby-card" data-open="hobbyVideo"><img src="assets/Video Editing and Content Creation.jpg" alt="Video editing"><strong>Video Editing</strong></button>
+              <button class="hobby-card" data-open="hobbyPhoto"><img src="assets/ Photography and Photo Editing1112.jpg" alt="Photography"><strong>Photography</strong></button>
+              <button class="hobby-card" data-open="hobbyGaming"><img src="assets/Gaming and Server Management.jpg" alt="Gaming"><strong>Gaming Servers</strong></button>
+              <button class="hobby-card" data-open="hobbyTech"><img src="assets/ Tech Blogging or Tutorials.jpg" alt="Tech tutorials"><strong>Tech Tutorials</strong></button>
+              <button class="hobby-card" data-open="hobbyCulture"><img src="assets/Cultural Exploring.jpg" alt="Culture"><strong>Cultural Exploring</strong></button>
+            </div></section>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="services" style="--x: 8vw; --y: 56vh; --w: 710px;">
+        <header class="titlebar">
+          <div class="title">🛠️ Services</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body">
+          <div class="service-list organized-list service-cards">
+            <button data-open="skillHardware"><span>🧰</span><strong>Phone Hardware Repair</strong><p>Screens, batteries, cameras, charging ports, and device components.</p></button>
+            <button data-open="skillSoftware"><span>📱</span><strong>Software Troubleshooting</strong><p>iOS, Android, app crashes, system errors, updates, and performance.</p></button>
+            <button data-open="skillWorkspace"><span>📧</span><strong>Workspace Support</strong><p>Google Workspace setup, email, collaboration, presentations, and Sheets workflows.</p></button>
+            <button data-open="skillAdobe"><span>🎬</span><strong>Creative Editing</strong><p>Video editing, photography, photo editing, and Adobe workflows.</p></button>
+            <button data-open="discordApp"><span>💬</span><strong>Community Setup</strong><p>Discord roles, permissions, server templates, and community organisation.</p></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="tools" style="--x: 51vw; --y: 7vh; --w: 540px;">
+        <header class="titlebar">
+          <div class="title">🧰 Tools</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body tag-cloud">
+          <span>Google Workspace</span><span>Google Sheets</span><span>Google Slides</span><span>Premiere Pro</span><span>After Effects</span><span>Lightroom</span><span>Photoshop</span><span>macOS</span><span>iOS</span><span>Android</span><span>Discord</span><span>YouTube</span>
+        </div>
+      </section>
+
+      <section class="window" id="voices" style="--x: 58vw; --y: 42vh; --w: 520px;">
+        <header class="titlebar">
+          <div class="title">💿 Language Voice Clips</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body">
+          <div class="voice-card"><div><strong>Arabic</strong><span>Native · 100%</span></div><audio controls src="assets/Arabic.mp3.m4a"></audio></div>
+          <div class="voice-card"><div><strong>English</strong><span>Fluent · 80%</span></div><audio controls src="assets/English.m4a"></audio></div>
+          <div class="voice-card"><div><strong>Turkish</strong><span>Basic · 40%</span></div><audio controls src="assets/Turkish.m4a"></audio></div>
+        </div>
+      </section>
+
+      <section class="window" id="contact" style="--x: 3vw; --y: 33vh; --w: 520px;">
+        <header class="titlebar">
+          <div class="title">✉️ Contact Me</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body contact-body">
+          <div class="mail-icon" aria-hidden="true">📬</div>
+          <div>
+            <p class="eyebrow">Send A Message</p>
+            <h2>Let's talk tech, repair, or content.</h2>
+            <p>Use the original contact paths from Mahmood's restored site, or jump straight to his community and YouTube links.</p>
+            <form class="contact-form" action="mailto:mahmoodkargholy@gmail.com" method="post" enctype="text/plain">
+              <label>Your name<input type="text" name="name" placeholder="Your name"></label>
+              <label>Your message<textarea name="message" rows="4" placeholder="Tell Mahmood what you need"></textarea></label>
+              <button class="btn primary" type="submit">Open Email App</button>
+            </form>
+            <div class="contact-links">
+              <a class="btn" href="mailto:mahmoodkargholy@gmail.com">Email</a>
+              <a class="btn" href="https://www.instagram.com/0w.c6/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="btn" href="https://www.linkedin.com/in/mahmood-kargholy-0775a0315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="btn" href="https://discord.gg/ydavdwtYjy" target="_blank" rel="noreferrer">Discord</a>
+              <a class="btn" href="https://www.youtube.com/@Lu5w" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="media" style="--x: 14vw; --y: 10vh; --w: 980px;">
+        <header class="titlebar">
+          <div class="title">🖼️ Media Library</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body media-library">
+          <aside class="media-info"><h2>All Pictures</h2><p>Every usable image found in the project assets is here. Click any picture to open it larger.</p><strong>55 images</strong></aside>
+          <div class="media-grid">
+            <button class="media-thumb" data-image="assets/ Photography and Photo Editing1112.jpg" data-title="Photography And Photo Editing1112"><img src="assets/ Photography and Photo Editing1112.jpg" alt="Photography And Photo Editing1112"><strong>Photography And Photo Editing1112</strong></button>
+            <button class="media-thumb" data-image="assets/ Tech Blogging or Tutorials.jpg" data-title="Tech Blogging Or Tutorials"><img src="assets/ Tech Blogging or Tutorials.jpg" alt="Tech Blogging Or Tutorials"><strong>Tech Blogging Or Tutorials</strong></button>
+            <button class="media-thumb" data-image="assets/30.jpg" data-title="30"><img src="assets/30.jpg" alt="30"><strong>30</strong></button>
+            <button class="media-thumb" data-image="assets/40.jpg" data-title="40"><img src="assets/40.jpg" alt="40"><strong>40</strong></button>
+            <button class="media-thumb" data-image="assets/50.jpg" data-title="50"><img src="assets/50.jpg" alt="50"><strong>50</strong></button>
+            <button class="media-thumb" data-image="assets/7777.jpg" data-title="7777"><img src="assets/7777.jpg" alt="7777"><strong>7777</strong></button>
+            <button class="media-thumb" data-image="assets/Adobe-Logo-1993.jpg" data-title="Adobe Logo 1993"><img src="assets/Adobe-Logo-1993.jpg" alt="Adobe Logo 1993"><strong>Adobe Logo 1993</strong></button>
+            <button class="media-thumb" data-image="assets/anderoid repair.avif" data-title="Anderoid Repair"><img src="assets/anderoid repair.avif" alt="Anderoid Repair"><strong>Anderoid Repair</strong></button>
+            <button class="media-thumb" data-image="assets/Cultural Exploring.jpg" data-title="Cultural Exploring"><img src="assets/Cultural Exploring.jpg" alt="Cultural Exploring"><strong>Cultural Exploring</strong></button>
+            <button class="media-thumb" data-image="assets/discord-logo-1-1.png" data-title="Discord Logo 1 1"><img src="assets/discord-logo-1-1.png" alt="Discord Logo 1 1"><strong>Discord Logo 1 1</strong></button>
+            <button class="media-thumb" data-image="assets/discord-logo.svg" data-title="Discord Logo"><img src="assets/discord-logo.svg" alt="Discord Logo"><strong>Discord Logo</strong></button>
+            <button class="media-thumb" data-image="assets/discord1.png" data-title="Discord1"><img src="assets/discord1.png" alt="Discord1"><strong>Discord1</strong></button>
+            <button class="media-thumb" data-image="assets/edit1.webp" data-title="Edit1"><img src="assets/edit1.webp" alt="Edit1"><strong>Edit1</strong></button>
+            <button class="media-thumb" data-image="assets/edit3.jpg" data-title="Edit3"><img src="assets/edit3.jpg" alt="Edit3"><strong>Edit3</strong></button>
+            <button class="media-thumb" data-image="assets/edit4.jpg" data-title="Edit4"><img src="assets/edit4.jpg" alt="Edit4"><strong>Edit4</strong></button>
+            <button class="media-thumb" data-image="assets/edit555.webp" data-title="Edit555"><img src="assets/edit555.webp" alt="Edit555"><strong>Edit555</strong></button>
+            <button class="media-thumb" data-image="assets/edit66.jpg" data-title="Edit66"><img src="assets/edit66.jpg" alt="Edit66"><strong>Edit66</strong></button>
+            <button class="media-thumb" data-image="assets/editing1.png" data-title="Editing1"><img src="assets/editing1.png" alt="Editing1"><strong>Editing1</strong></button>
+            <button class="media-thumb" data-image="assets/gameing img.avif" data-title="Gameing Img"><img src="assets/gameing img.avif" alt="Gameing Img"><strong>Gameing Img</strong></button>
+            <button class="media-thumb" data-image="assets/Gaming and Server Management.jpg" data-title="Gaming And Server Management"><img src="assets/Gaming and Server Management.jpg" alt="Gaming And Server Management"><strong>Gaming And Server Management</strong></button>
+            <button class="media-thumb" data-image="assets/gaming img2.webp" data-title="Gaming Img2"><img src="assets/gaming img2.webp" alt="Gaming Img2"><strong>Gaming Img2</strong></button>
+            <button class="media-thumb" data-image="assets/gmend img.jpg" data-title="Gmend Img"><img src="assets/gmend img.jpg" alt="Gmend Img"><strong>Gmend Img</strong></button>
+            <button class="media-thumb" data-image="assets/GoogleWorkspace.png" data-title="Googleworkspace"><img src="assets/GoogleWorkspace.png" alt="Googleworkspace"><strong>Googleworkspace</strong></button>
+            <button class="media-thumb" data-image="assets/hardware1.jpg" data-title="Hardware1"><img src="assets/hardware1.jpg" alt="Hardware1"><strong>Hardware1</strong></button>
+            <button class="media-thumb" data-image="assets/hhoobbee15.jpg" data-title="Hhoobbee15"><img src="assets/hhoobbee15.jpg" alt="Hhoobbee15"><strong>Hhoobbee15</strong></button>
+            <button class="media-thumb" data-image="assets/hobby 5.jpg" data-title="Hobby 5"><img src="assets/hobby 5.jpg" alt="Hobby 5"><strong>Hobby 5</strong></button>
+            <button class="media-thumb" data-image="assets/hoobbee5.jpg" data-title="Hoobbee5"><img src="assets/hoobbee5.jpg" alt="Hoobbee5"><strong>Hoobbee5</strong></button>
+            <button class="media-thumb" data-image="assets/instagram-logo.svg" data-title="Instagram Logo"><img src="assets/instagram-logo.svg" alt="Instagram Logo"><strong>Instagram Logo</strong></button>
+            <button class="media-thumb" data-image="assets/iohone repair.jpg" data-title="Iohone Repair"><img src="assets/iohone repair.jpg" alt="Iohone Repair"><strong>Iohone Repair</strong></button>
+            <button class="media-thumb" data-image="assets/iphone reoair6.jpg" data-title="Iphone Reoair6"><img src="assets/iphone reoair6.jpg" alt="Iphone Reoair6"><strong>Iphone Reoair6</strong></button>
+            <button class="media-thumb" data-image="assets/linkedin-logo.svg" data-title="Linkedin Logo"><img src="assets/linkedin-logo.svg" alt="Linkedin Logo"><strong>Linkedin Logo</strong></button>
+            <button class="media-thumb" data-image="assets/me 2.jpg" data-title="Me 2"><img src="assets/me 2.jpg" alt="Me 2"><strong>Me 2</strong></button>
+            <button class="media-thumb" data-image="assets/me1.png" data-title="Me1"><img src="assets/me1.png" alt="Me1"><strong>Me1</strong></button>
+            <button class="media-thumb" data-image="assets/phone rebair1 hobbe.jpg" data-title="Phone Rebair1 Hobbe"><img src="assets/phone rebair1 hobbe.jpg" alt="Phone Rebair1 Hobbe"><strong>Phone Rebair1 Hobbe</strong></button>
+            <button class="media-thumb" data-image="assets/phone repair 7.jpg" data-title="Phone Repair 7"><img src="assets/phone repair 7.jpg" alt="Phone Repair 7"><strong>Phone Repair 7</strong></button>
+            <button class="media-thumb" data-image="assets/phone repair5.webp" data-title="Phone Repair5"><img src="assets/phone repair5.webp" alt="Phone Repair5"><strong>Phone Repair5</strong></button>
+            <button class="media-thumb" data-image="assets/project6.webp" data-title="Project6"><img src="assets/project6.webp" alt="Project6"><strong>Project6</strong></button>
+            <button class="media-thumb" data-image="assets/rebaer5.jpg" data-title="Rebaer5"><img src="assets/rebaer5.jpg" alt="Rebaer5"><strong>Rebaer5</strong></button>
+            <button class="media-thumb" data-image="assets/screen.png" data-title="Screen"><img src="assets/screen.png" alt="Screen"><strong>Screen</strong></button>
+            <button class="media-thumb" data-image="assets/snow.jpg" data-title="Snow"><img src="assets/snow.jpg" alt="Snow"><strong>Snow</strong></button>
+            <button class="media-thumb" data-image="assets/softwaer ios.jpg" data-title="Softwaer Ios"><img src="assets/softwaer ios.jpg" alt="Softwaer Ios"><strong>Softwaer Ios</strong></button>
+            <button class="media-thumb" data-image="assets/softwaer labtop.webp" data-title="Softwaer Labtop"><img src="assets/softwaer labtop.webp" alt="Softwaer Labtop"><strong>Softwaer Labtop</strong></button>
+            <button class="media-thumb" data-image="assets/software ander.jpg" data-title="Software Ander"><img src="assets/software ander.jpg" alt="Software Ander"><strong>Software Ander</strong></button>
+            <button class="media-thumb" data-image="assets/software.webp" data-title="Software"><img src="assets/software.webp" alt="Software"><strong>Software</strong></button>
+            <button class="media-thumb" data-image="assets/travel.jpg" data-title="Travel"><img src="assets/travel.jpg" alt="Travel"><strong>Travel</strong></button>
+            <button class="media-thumb" data-image="assets/Video Editing and Content Creation.jpg" data-title="Video Editing And Content Creation"><img src="assets/Video Editing and Content Creation.jpg" alt="Video Editing And Content Creation"><strong>Video Editing And Content Creation</strong></button>
+            <button class="media-thumb" data-image="assets/Video Editing and Content Creation111.jpg" data-title="Video Editing And Content Creation111"><img src="assets/Video Editing and Content Creation111.jpg" alt="Video Editing And Content Creation111"><strong>Video Editing And Content Creation111</strong></button>
+            <button class="media-thumb" data-image="assets/Video Editing and Content Creation2.jpg" data-title="Video Editing And Content Creation2"><img src="assets/Video Editing and Content Creation2.jpg" alt="Video Editing And Content Creation2"><strong>Video Editing And Content Creation2</strong></button>
+            <button class="media-thumb" data-image="assets/Video Editing and Content Creation3.jpg" data-title="Video Editing And Content Creation3"><img src="assets/Video Editing and Content Creation3.jpg" alt="Video Editing And Content Creation3"><strong>Video Editing And Content Creation3</strong></button>
+            <button class="media-thumb" data-image="assets/workapse2.jpg" data-title="Workapse2"><img src="assets/workapse2.jpg" alt="Workapse2"><strong>Workapse2</strong></button>
+            <button class="media-thumb" data-image="assets/workspace 1.jpg" data-title="Workspace 1"><img src="assets/workspace 1.jpg" alt="Workspace 1"><strong>Workspace 1</strong></button>
+            <button class="media-thumb" data-image="assets/workspase3.jpg" data-title="Workspase3"><img src="assets/workspase3.jpg" alt="Workspase3"><strong>Workspase3</strong></button>
+            <button class="media-thumb" data-image="assets/youtube-logo.svg" data-title="Youtube Logo"><img src="assets/youtube-logo.svg" alt="Youtube Logo"><strong>Youtube Logo</strong></button>
+            <button class="media-thumb" data-image="assets/youyube1.png" data-title="Youyube1"><img src="assets/youyube1.png" alt="Youyube1"><strong>Youyube1</strong></button>
+            <button class="media-thumb" data-image="assets/yt.webp" data-title="Yt"><img src="assets/yt.webp" alt="Yt"><strong>Yt</strong></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="apps" style="--x: 18vw; --y: 18vh; --w: 660px;">
+        <header class="titlebar">
+          <div class="title">🪟 Programs</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body apps-grid">
+          <button class="program-icon" data-open="instagramApp"><img src="assets/instagram-logo.svg" alt=""><strong>Instagram</strong><small>Photos and updates</small></button>
+          <button class="program-icon" data-open="linkedinApp"><img src="assets/linkedin-logo.svg" alt=""><strong>LinkedIn</strong><small>Professional profile</small></button>
+          <button class="program-icon" data-open="discordApp"><img src="assets/discord-logo.svg" alt=""><strong>Discord</strong><small>MK2K community</small></button>
+          <button class="program-icon" data-open="youtubeApp"><img src="assets/youtube-logo.svg" alt=""><strong>YouTube</strong><small>@Lu5w channel</small></button>
+        </div>
+      </section>
+
+      <section class="window app-window" id="instagramApp" style="--x: 22vw; --y: 20vh; --w: 560px;">
+        <header class="titlebar"><div class="title">📷 Instagram</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body app-body">
+          <img src="assets/instagram-logo.svg" alt="Instagram logo">
+          <div><p class="eyebrow">Installed App</p><h2>Instagram</h2><p>Instagram profile installed as a desktop app shortcut for 0w.c6. Use the launch button to open the live profile.</p><a class="btn primary" href="https://www.instagram.com/0w.c6/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noreferrer">Launch App</a></div>
+        </div>
+      </section>
+
+      <section class="window app-window" id="linkedinApp" style="--x: 22vw; --y: 20vh; --w: 560px;">
+        <header class="titlebar"><div class="title">💼 LinkedIn</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body app-body">
+          <img src="assets/linkedin-logo.svg" alt="LinkedIn logo">
+          <div><p class="eyebrow">Installed App</p><h2>LinkedIn</h2><p>LinkedIn profile installed as a desktop app shortcut. Use the launch button to open the live professional profile.</p><a class="btn primary" href="https://www.linkedin.com/in/mahmood-kargholy-0775a0315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noreferrer">Launch App</a></div>
+        </div>
+      </section>
+
+      <section class="window app-window" id="discordApp" style="--x: 22vw; --y: 20vh; --w: 560px;">
+        <header class="titlebar"><div class="title">💬 Discord</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body">
+          <div class="detail-copy"><p class="eyebrow">Installed App</p><h2>MK2K Discord</h2><p>Discord server setup is part of Mahmood's experience: roles, permissions, templates, gaming communities, and organized spaces for people to connect.</p><a class="btn primary" href="https://discord.gg/ydavdwtYjy" target="_blank" rel="noreferrer">Open Invite</a></div>
+          <div class="detail-gallery"><img src="assets/discord-logo.svg" alt="Discord logo"><img src="assets/discord1.png" alt="Discord server"><img src="assets/Gaming and Server Management.jpg" alt="Gaming community"></div>
+        </div>
+      </section>
+
+      <section class="window app-window" id="youtubeApp" style="--x: 18vw; --y: 16vh; --w: 700px;">
+        <header class="titlebar"><div class="title">▶️ YouTube</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body youtube-app-body">
+          <div class="youtube-embed-placeholder"><span>▶</span><p>Live channel preview is not installed locally yet. Launch @Lu5w to view the channel.</p></div>
+          <div><p class="eyebrow">Installed App</p><h2>@Lu5w</h2><p>YouTube content creation is installed as the @Lu5w desktop app.</p><a class="btn primary" href="https://www.youtube.com/@Lu5w" target="_blank" rel="noreferrer">Open Channel</a></div>
+        </div>
+      </section>
+
+
+
+      <section class="window detail-window" id="skillWorkspace" style="--x: 18vw; --y: 14vh; --w: 780px;">
+        <header class="titlebar"><div class="title">📧 Skill — Google Workspace</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Google Workspace</h2><p>Email management, presentations, spreadsheets, collaboration, file organization, and productivity workflows.</p></div><div class="detail-gallery"><img src="assets/GoogleWorkspace.png" alt="Google Workspace"><img src="assets/workspace 1.jpg" alt="Workspace"><img src="assets/workapse2.jpg" alt="Workspace setup"></div></div>
+      </section>
+      <section class="window detail-window" id="skillSoftware" style="--x: 18vw; --y: 14vh; --w: 780px;">
+        <header class="titlebar"><div class="title">📱 Skill — Software Repair</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Software Repair</h2><p>Diagnosing iOS and Android problems, app crashes, system updates, restore issues, and performance faults.</p></div><div class="detail-gallery"><img src="assets/software.webp" alt="Software"><img src="assets/softwaer ios.jpg" alt="iOS software"><img src="assets/software ander.jpg" alt="Android software"></div></div>
+      </section>
+      <section class="window detail-window" id="skillHardware" style="--x: 18vw; --y: 14vh; --w: 780px;">
+        <header class="titlebar"><div class="title">🔧 Skill — Hardware Repair</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Hardware Repair</h2><p>Replacing and troubleshooting phone parts such as screens, batteries, cameras, charging ports, and internals.</p></div><div class="detail-gallery"><img src="assets/project6.webp" alt="Hardware"><img src="assets/hardware1.jpg" alt="Hardware repair"><img src="assets/iohone repair.jpg" alt="iPhone repair"></div></div>
+      </section>
+      <section class="window detail-window" id="skillAdobe" style="--x: 18vw; --y: 14vh; --w: 780px;">
+        <header class="titlebar"><div class="title">🎨 Skill — Adobe Editing</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Adobe Editing</h2><p>Video editing, photo editing, design work, animation, and creative post-production using Adobe tools.</p></div><div class="detail-gallery"><img src="assets/Adobe-Logo-1993.jpg" alt="Adobe"><img src="assets/edit1.webp" alt="Edit"><img src="assets/edit555.webp" alt="Creative edit"></div></div>
+      </section>
+
+      <section class="window detail-window" id="hobbyPhone" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">🔧 Hobby — Phone Repair</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Phone Repair</h2><p>Hands-on repair is both a skill and a hobby: diagnosing issues, replacing parts, and learning how devices work inside.</p></div><div class="detail-gallery"><img src="assets/phone rebair1 hobbe.jpg" alt="Phone repair"><img src="assets/phone repair 7.jpg" alt="Phone repair work"><img src="assets/rebaer5.jpg" alt="Repair tools"></div></div>
+      </section>
+      <section class="window detail-window" id="hobbyVideo" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">🎬 Hobby — Video Editing</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Video Editing</h2><p>Creating content, editing visuals, and improving videos with creative tools and post-production workflows.</p></div><div class="detail-gallery"><img src="assets/Video Editing and Content Creation.jpg" alt="Video editing"><img src="assets/Video Editing and Content Creation2.jpg" alt="Content creation"><img src="assets/editing1.png" alt="Editing setup"></div></div>
+      </section>
+      <section class="window detail-window" id="hobbyPhoto" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">📷 Hobby — Photography</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Photography</h2><p>Photography and photo editing help Mahmood practice composition, detail, and visual storytelling.</p></div><div class="detail-gallery"><img src="assets/ Photography and Photo Editing1112.jpg" alt="Photography"><img src="assets/edit3.jpg" alt="Photo edit"><img src="assets/edit4.jpg" alt="Edited photo"></div></div>
+      </section>
+      <section class="window detail-window" id="hobbyGaming" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">🎮 Hobby — Gaming Servers</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Gaming Servers</h2><p>Gaming and server management builds organization, community setup, permissions, and event coordination skills.</p></div><div class="detail-gallery"><img src="assets/Gaming and Server Management.jpg" alt="Gaming"><img src="assets/gaming img2.webp" alt="Gaming setup"><img src="assets/gmend img.jpg" alt="Gaming desk"></div></div>
+      </section>
+      <section class="window detail-window" id="hobbyTech" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">📝 Hobby — Tech Tutorials</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Tech Tutorials</h2><p>Tech blogging and tutorials combine repair knowledge with communication, helping others learn practical fixes.</p></div><div class="detail-gallery"><img src="assets/ Tech Blogging or Tutorials.jpg" alt="Tech tutorials"><img src="assets/hobby 5.jpg" alt="Tutorial work"><img src="assets/hhoobbee15.jpg" alt="Tech hobby"></div></div>
+      </section>
+      <section class="window detail-window" id="hobbyCulture" style="--x: 18vw; --y: 14vh; --w: 760px;">
+        <header class="titlebar"><div class="title">🌍 Hobby — Cultural Exploring</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body detail-body"><div class="detail-copy"><h2>Cultural Exploring</h2><p>Cultural exploring shows curiosity, adaptability, and interest in people, places, and new experiences.</p></div><div class="detail-gallery"><img src="assets/Cultural Exploring.jpg" alt="Cultural exploring"><img src="assets/40.jpg" alt="Travel"><img src="assets/travel.jpg" alt="Travel photo"></div></div>
+      </section>
+
+
+      <section class="window" id="recycleBin" style="--x: 18vw; --y: 12vh; --w: 860px;">
+        <header class="titlebar"><div class="title">🗑️ Recycle Bin</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body meme-bin no-description">
+          <div class="meme-grid online-memes">
+            <button class="online-meme" data-image="https://api.memegen.link/images/drake/Opening_one_more_tab/Actually_finishing_the_CV.jpg"><img src="https://api.memegen.link/images/drake/Opening_one_more_tab/Actually_finishing_the_CV.jpg" alt="CV meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/distracted-boyfriend/Me/One_tiny_phone_screw/My_whole_life.jpg"><img src="https://api.memegen.link/images/distracted-boyfriend/Me/One_tiny_phone_screw/My_whole_life.jpg" alt="Phone repair meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/ds/Customer:_it_worked_yesterday/Me:_hold_my_tea.jpg"><img src="https://api.memegen.link/images/ds/Customer:_it_worked_yesterday/Me:_hold_my_tea.jpg" alt="Tech support meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/buzz/Discord_roles/Discord_roles_everywhere.jpg"><img src="https://api.memegen.link/images/buzz/Discord_roles/Discord_roles_everywhere.jpg" alt="Discord meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/tenguy/When_the_update_fixes_one_bug/And_creates_three_more.jpg"><img src="https://api.memegen.link/images/tenguy/When_the_update_fixes_one_bug/And_creates_three_more.jpg" alt="Update meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/awkward/Interview:_tell_me_about_yourself/Me:_opens_Mahmood_98.jpg"><img src="https://api.memegen.link/images/awkward/Interview:_tell_me_about_yourself/Me:_opens_Mahmood_98.jpg" alt="Interview meme"></button>
+
+            <button class="online-meme" data-image="https://api.memegen.link/images/fry/Not_sure_if_job_interview/Or_IT_troubleshooting_session.jpg"><img src="https://api.memegen.link/images/fry/Not_sure_if_job_interview/Or_IT_troubleshooting_session.jpg" alt="Interview meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/oprah/You_get_a_role/You_get_a_permission/Everyone_gets_a_Discord_role.jpg"><img src="https://api.memegen.link/images/oprah/You_get_a_role/You_get_a_permission/Everyone_gets_a_Discord_role.jpg" alt="Discord role meme"></button>
+            <button class="online-meme" data-image="https://api.memegen.link/images/success/Found_the_missing_screw/Phone_still_works.jpg"><img src="https://api.memegen.link/images/success/Found_the_missing_screw/Phone_still_works.jpg" alt="Phone repair success meme"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="musicApp" style="--x: 18vw; --y: 12vh; --w: 780px;">
+        <header class="titlebar"><div class="title">🎵 Music</div><div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div></header>
+        <div class="window-body music-player no-description">
+          <div class="audio-grid">
+            <article><h3>Rickroll-ish</h3><audio controls preload="metadata" src="assets/generated-audio/rickroll-ish.wav"></audio></article>
+            <article><h3>Blobby Bounce</h3><audio controls preload="metadata" src="assets/generated-audio/blobby-bounce.wav"></audio></article>
+            <article><h3>Badger Loop</h3><audio controls preload="metadata" src="assets/generated-audio/badger-loop.wav"></audio></article>
+            <article><h3>Shooting Stars-ish</h3><audio controls preload="metadata" src="assets/generated-audio/shooting-stars-ish.wav"></audio></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="faq" style="--x: 15vw; --y: 74vh; --w: 610px;">
+        <header class="titlebar">
+          <div class="title">❔ FAQ</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body faq-list">
+          <details open><summary>What does Mahmood specialise in?</summary><p>Phone repair, hardware/software troubleshooting, Google Workspace, operating systems, Adobe editing, and community tools.</p></details>
+          <details><summary>Which languages does he speak?</summary><p>Arabic as native language, English fluently, and basic Turkish.</p></details>
+          <details><summary>Is the CV included?</summary><p>Yes, the original CV PDF is linked in the Resume window and hero area.</p></details>
+        </div>
+      </section>
+
+      <section class="window" id="resume" style="--x: 61vw; --y: 76vh; --w: 450px;">
+        <header class="titlebar">
+          <div class="title">📄 Resume</div>
+          <div class="window-actions"><button class="minimize-btn" type="button" title="Minimize">−</button><button class="maximize-btn" type="button" title="Maximize">□</button><button class="close-btn" type="button" title="Quit">×</button></div>
+        </header>
+        <div class="window-body resume-full">
+          <aside class="resume-summary"><img src="assets/me 2.jpg" alt="Mahmood portrait"><h2>Mahmood Kargholy</h2><p>IT professional, phone repair technician, Google Workspace support, and content creator based in the United Kingdom.</p><a class="btn primary" href="assets/Mahmood Kargholy CV new.pdf" target="_blank" rel="noreferrer">View / Download CV</a></aside>
+          <main class="resume-document">
+            <section><h3>Professional Summary</h3><p>Practical and adaptable IT professional with experience across mobile phone repair, hardware and software troubleshooting, Google Workspace support, operating systems, Adobe editing, Discord community setup, and YouTube content creation. Strong problem-solver with hands-on technical ability, communication skills, and a creative approach to helping people use technology confidently.</p></section>
+            <section><h3>Core Skills</h3><ul><li>Phone hardware repair: screens, batteries, cameras, charging ports, and components.</li><li>Software troubleshooting for iOS, Android, macOS, app issues, updates, and performance.</li><li>Google Workspace: Gmail, Slides, Sheets, collaboration, presentations, and workflows.</li><li>Adobe creative tools: Premiere Pro, After Effects, Lightroom, and Photoshop.</li><li>Discord server setup: roles, permissions, templates, communities, and moderation structure.</li><li>Languages: Arabic native, English fluent, Turkish basic.</li></ul></section>
+            <section><h3>Experience Highlights</h3><p>Built experience through phone repair projects, Google Workspace support, Adobe editing work, server/community management, and ongoing YouTube content creation through @Lu5w.</p></section>
+            <section><h3>Career Goal</h3><p>Seeking an IT support, technical support, phone repair, digital support, or junior creative technology role where practical repair skills, customer support, and creative media experience can be used professionally.</p></section>
+          </main>
+        </div>
+      </section>
+    </main>
+
+    <nav class="taskbar" aria-label="Retro taskbar">
+      <button class="start" id="startButton" type="button">🏠 Start</button>
+      <div class="start-menu" id="startMenu" hidden>
+        <div class="start-rail">Mahmood 98</div>
+        <div class="start-items">
+          <button data-open="home">🏠 Home</button>
+          <button data-open="myComputer">🖥️ My Computer</button>
+          <button data-open="apps">🪟 Programs</button>
+          <button data-open="controlPanel">⚙️ Control Panel</button>
+          <button data-open="services">🛠 Services</button>
+          <button data-open="voices">💿 Voices</button>
+          <button data-open="media">🖼 Media</button>
+          <button data-open="contact">✉️ Contact Me</button>
+          <button data-open="resume">📄 Resume</button>
+          <button data-open="musicApp">🎵 Music</button>
+          <button data-open="recycleBin">🗑️ Recycle Bin</button>
+          <button type="button" id="startShutdown">⏻ Shut Down</button>
+        </div>
+      </div>
+      <a href="#home" data-open="home">🏠 Home</a>
+      <a href="#portfolio" data-open="portfolio">💾 Portfolio</a>
+      <a href="#contact" data-open="contact">✉️ Contact Me</a>
+      <a href="#services" data-open="services">🛠 Services</a>
+      <a href="#voices" data-open="voices">💿 Voices</a>
+      <a href="#media" data-open="media">🖼 Media</a>
+      <a href="#faq" data-open="faq">❔ FAQ</a>
+      <a href="#resume" data-open="resume">📄 Resume</a>
+      <a href="#apps" data-open="apps">🪟 Programs</a>
+      <div class="app-dock" aria-label="Pinned apps"><button data-open="youtubeApp"><img src="assets/youtube-logo.svg" alt="YouTube"></button><button data-open="discordApp"><img src="assets/discord-logo.svg" alt="Discord"></button><button data-open="linkedinApp"><img src="assets/linkedin-logo.svg" alt="LinkedIn"></button><button data-open="instagramApp"><img src="assets/instagram-logo.svg" alt="Instagram"></button><button data-open="musicApp">🎵</button><button data-open="recycleBin">🗑️</button></div>
+      <span class="clock" id="clock">01:24</span>
+    </nav>
+  </div>
+
+
+  <div class="power-dialog" id="powerDialog" hidden>
+    <section class="login-window power-window">
+      <header class="titlebar"><div class="title">⏻ Shut Down Mahmood 98</div><div class="window-actions"><button class="close-btn" id="cancelPowerTop" type="button" title="Quit">×</button></div></header>
+      <div class="window-body power-body">
+        <div class="computer-badge">⏻</div>
+        <div><h2>What do you want the computer to do?</h2><div class="power-actions"><button class="btn primary" id="turnOffButton" type="button">Turn Off</button><button class="btn" id="restartButton" type="button">Restart</button><button class="btn" id="cancelPowerButton" type="button">Cancel</button></div></div>
+      </div>
+    </section>
+  </div>
+
+
+  <div class="image-viewer" id="imageViewer" hidden>
+    <section class="viewer-window">
+      <header class="titlebar"><div class="title" id="imageViewerTitle">Picture</div><div class="window-actions"><button class="close-btn" id="closeImageViewer" type="button" title="Quit">×</button></div></header>
+      <div class="viewer-body"><img id="imageViewerImg" alt="Expanded picture"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

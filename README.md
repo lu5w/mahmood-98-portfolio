@@ -26,6 +26,9 @@ A standalone Mahmood 98 desktop portfolio, built from the local restored copy of
 - Mahmood.exe home window can now close completely.
 - Recycle Bin now uses more online meme images with no descriptions.
 - Music app now plays four local generated audio tracks inside the desktop, avoiding YouTube embed errors.
+- Simplified desktop shortcuts: My Computer, CV Portfolio, Contact, Programs, Turn Off.
+- Calmer generated welcome chime plus short classic-style click, open, close, maximize, and error tones.
+- Portfolio data reorganized into IT Support, Phone Repair, Creative Media, and Community folders.
 - Mahmood's profile images, project images, hobby images, CV PDF, and language audio clips copied from the restored data folder.
 - External links preserved for the Discord server and YouTube channel.
 
